@@ -1,0 +1,15 @@
+<div class="col-md-6 offset-md-3">
+    <div class="card" *ngFor="let post of postArray">
+        <div class="card-header">
+          <p>{{post.title}}</p>
+          <p>{{post.body}}</p>
+          
+            <p class="d-flex justify-content-between" [routerLink]="['/create', post.id]"><button class="btn btn-info">edit</button>
+                <button class="btn btn-danger" (click)="ondelte(post.id)">delete</button>
+               
+            </p>
+          
+        </div>
+        
+    </div>
+</div>

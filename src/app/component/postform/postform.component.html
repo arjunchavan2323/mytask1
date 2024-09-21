@@ -1,0 +1,15 @@
+<form [formGroup]="postform" (ngSubmit)="onsubmit()">
+    <div class="form-group">
+        <label for="title">title</label>
+        <input type="text" class="form-control" formControlName="title">
+    </div>
+    <div class="form-group">
+        <label for="body">body</label>
+        <input type="text" class="form-control" formControlName="body">
+    </div>
+    <div class="text-right">
+        <button class="btn btn-primary" (click)="onupdatepost()" *ngIf="isshowbutton" type="button">update</button>
+        <button class="btn btn-primary" *ngIf="!isshowbutton" type="submit">add post</button>
+
+    </div>
+</form>

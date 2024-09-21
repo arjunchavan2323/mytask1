@@ -1,0 +1,33 @@
+
+   <form [formGroup]="chartform" (ngSubmit)="onsubmitt()">
+   
+    <div class="form-group">
+        <label for="firstvalue">firstvalue</label>
+        <input type="text" class="form-control" (keyup)="onblur($event)" id="firstvalue" formControlName="firstvalue">
+        <ng-container *ngIf="chartform.get('firstvalue')?.dirty && chartform.get('firstvalue')?.hasError('iserorless')">
+             <p class="alert alert-danger">{{this.chartform.get('firstvalue')?.errors?.['firstvalue']}}</p>
+        </ng-container>
+    </div>
+    <div class="form-group">
+        <label for="secondvalue">secondvalue</label>
+        <input type="text" class="form-control" (keyup)="onblur($event)" id="secondvalue" formControlName="secondvalue">
+        <ng-container *ngIf="chartform.get('secondvalue')?.dirty && chartform.get('secondvalue')?.hasError('iserorless')">
+            <p class="alert alert-danger">{{this.chartform.get('secondvalue')?.errors?.['secondvalue']}}</p>
+       </ng-container>
+    </div>
+    <div class="text-right">
+        <button class="btn btn-primary">add chart</button>
+    </div>
+<div *ngIf="ishild">
+    <canvas baseChart
+    [type]="'pie'"
+    [datasets]="pieChartDatasets"
+    [labels]="pieChartLabels"
+    [options]="pieChartOptions"
+    [plugins]="pieChartPlugins"
+    [legend]="pieChartLegend">
+  </canvas> 
+  
+</div>
+   
+   </form>
